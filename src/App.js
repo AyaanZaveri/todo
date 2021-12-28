@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Input from './components/Input'
 import Tasks from './components/Tasks'
 
 const App = () => {
