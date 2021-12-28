@@ -1,6 +1,4 @@
 import React from "react";
-import { useState } from "react";
-import * as HeroIcons from "@heroicons/react/outline";
 import PropTypes from "prop-types";
 
 const Input = ({ color, padx, pady, placeholder, width, handleText, handleDate }) => {
