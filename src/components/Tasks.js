@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "./Button";
+import Input from './Input'
 
 const Tasks = (props) => {
   const tasks = [
@@ -7,6 +8,8 @@ const Tasks = (props) => {
 
   const taskProp = props.task;
   const dateProp = props.date;
+  const setTextProp = props.setText;
+  const setDateProp = props.setDate;
 
   const [list, setList] = React.useState(tasks);
 
@@ -35,6 +38,7 @@ const Tasks = (props) => {
           </div>
         );
       })}
+      <Input id='task' placeholder='What needs to be done?' color={props.color.toLowerCase()} width='80' handleText={setTextProp} handleDate={setDateProp}/>
       <div className="mt-3" onClick={taskProp ? handleAdd : null}>
         <Button text='Add' color={props.color.toLowerCase()} icon='PlusIcon' />
       </div>
