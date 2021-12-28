@@ -1,44 +1,45 @@
-import React from 'react'
+import React from "react";
+import Button from "./Button";
 
-const Tasks = () => {
+const Tasks = (props) => {
+  const tasks = [
+  ];
 
-        const tasks = [
-            {
-                id: 1,
-                task: 'Learn React',
-                date: '12-28-2021'
-            },
-            {
-                id: 2,
-                task: 'Learn Vue',
-            },
-            {
-                id: 3,
-                task: 'Learn Angular',
-            }
-          ]
+  const taskProp = props.task;
+  const dateProp = props.date;
 
-        return (
-            <div>
-                <h1 className='text-lg font-medium text-sky-900 hover:text-sky-700 transition'>Tasks:</h1>
-                <ul>
-                    {
-                    tasks.map((task) => {
-                        return <li className='text-sm text-sky-900 mt-2 hover:text-sky-700 font-normal bg-white hover:bg-slate-50 shadow-sm rounded-lg border px-3 py-2 w-80 transition' key={task.id}>{task.id}. {task.task}</li>
-                    })
-                }
-                </ul>
-            </div>
-        )
-    }
+  const [list, setList] = React.useState(tasks);
 
-const AddItem = ({ name, onChange, onAdd }) => (
+  const handleAdd = () => {
+    const newList = list.concat({id: Math.round(Math.random() * 10000), task: taskProp, date: dateProp});
+    setList(newList);
+  };
+
+  return (
     <div>
-      <input type="text" value={name} onChange={onChange} />
-      <button type="button" onClick={onAdd}>
-        Add
-      </button>
+      <h1 className={`text-lg font-medium text-${props.color.toLowerCase()}-900 hover:text-${props.color.toLowerCase()}-700 transition underline decoration-${props.color.toLowerCase()}-500 decoration-2 underline-offset-1`}>
+        Tasks
+      </h1>
+      {list.map((task) => {
+        return (
+          <div key={task.id-1} className={`flex flex-col text-sm mt-2 hover:text-${props.color.toLowerCase()}-700 bg-white hover:bg-slate-50 shadow-sm rounded-lg border px-3 py-2 w-80 transition`}>
+            <span className={`inline-flex text-${props.color.toLowerCase()}-900 font-medium`} key={task.id}>
+              {task.task}
+            </span>
+
+            <span className={`text-${props.color.toLowerCase()}-500 font-normal`} key={task.id+1}>
+              {task.date}
+            </span>
+
+
+          </div>
+        );
+      })}
+      <div className="mt-3" onClick={taskProp ? handleAdd : null}>
+        <Button text='Add' color={props.color.toLowerCase()} icon='PlusIcon' />
+      </div>
     </div>
   );
+};
 
-export default Tasks
+export default Tasks;
