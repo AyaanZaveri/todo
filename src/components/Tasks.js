@@ -21,7 +21,7 @@ const Tasks = (props) => {
 
   return (
     <div>
-      <h1 className={`text-lg font-medium text-${props.color.toLowerCase()}-900 hover:text-${props.color.toLowerCase()}-700 transition underline decoration-${props.color.toLowerCase()}-500 decoration-2 underline-offset-1`}>
+      <h1 className={`text-lg font-medium text-${props.color.toLowerCase()}-900 hover:text-${props.color.toLowerCase()}-500 transition underline decoration-${props.color.toLowerCase()}-500 decoration-2 underline-offset-1`}>
         Tasks
       </h1>
       {list.map((task) => {
