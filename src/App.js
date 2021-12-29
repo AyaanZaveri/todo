@@ -15,7 +15,7 @@ const App = () => {
   const [date, setDate] = useState(dateVal)
 
   return (
-    <div className='flex justify-center mt-7 appearance-none'>
+    <div className='flex justify-center mt-12 appearance-none'>
       <div className='flex items-start flex-col gap-y-3 appearance-none'>
         <h1 className={`text-2xl w-80 font-bold text-${theme.toLowerCase()}-900 hover:text-${theme.toLowerCase()}-500 transition`}>To-Do List</h1>
 
